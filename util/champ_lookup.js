@@ -13,7 +13,8 @@ async function ensureChampionIndex() {
     const res = await axios.get(`${KHONSHU}/champions`, { timeout: 15000 });
     const html = res.data;
     // naive extraction of slugs/names
-    const m = html.match(/<a[^>]*href="\\/champions\\/([^"]+)"/g);
+    const m = html.match(/<a[^>]*href="\/champions\/([^"]+)"/g);
+
     const names = [];
     if (m) {
       for (const a of m) {
