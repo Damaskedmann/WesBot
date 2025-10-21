@@ -1,29 +1,33 @@
 # WesBot 🤖
+# WesBot Complete (v3)
 
-A Discord helper bot for Marvel Contest of Champions.
+Features:
+- /wes wake-mode (30s follow-up)
+- Live champion scraping (Konshu's Ankh)
+- YouTube guide search (use your YOUTUBE_API_KEY)
+- Duel target & roster storage (SQLite)
+- Railway/GitHub ready
 
-## Commands
-Type naturally:
-- `spider-man counters`
-- `who beats doctor doom`
-- `hercules counters`
-- or tag the bot: `@WesBot doom counters`
+## Quick deploy (GitHub -> Railway)
+1. Create GitHub repo (wesbot). Paste all files exactly as provided.
+2. On Railway, Deploy from GitHub (select repo).
+3. Add environment variables in Railway:
+   - DISCORD_TOKEN
+   - OWNER_ID
+   - YOUTUBE_API_KEY
+   - DATABASE_PATH (optional)
+   - KHONSHU_BASE (optional)
+   - WAKE_WORD (default: /wes)
+4. Deploy and watch logs.
+5. Invite bot to server (scopes: bot, intents: message content).
+6. In Discord: type `/wes` then your question (e.g., `who counters Shathra?` or `add roster`).
 
-## Setup
-You don't need to code.  
-1. Create a Discord Bot in [Discord Developer Portal](https://discord.com/developers/applications)
-2. Copy your token and save it for Railway.
-3. Connect this GitHub repo to [Railway.app](https://railway.app)
-4. Add environment variables:
-   - `DISCORD_TOKEN`
-   - `YOUTUBE_API_KEY`
-   - `OWNER_ID`
-   - `PREFIX`
-5. Deploy.  
-6. Invite WesBot to your server → enjoy.
+## Roster format
+When prompted to add roster:
+`USER / BG / CHAMP / STAR / RANK / SIG`
+Example:
+`SMOVV / BG1 / Nico Miranou / 7 / R4 / 200`
 
 ## Notes
-This is a lightweight starter version ready to expand with:
-- Champion search & counters
-- YouTube guide fetching
-- Tier list integration
+- The bot listens only after you type the WAKE_WORD (default `/wes`) to avoid responding to normal chat.
+- YouTube results use your API key; ensure it has YouTube Data API v3 enabled.
