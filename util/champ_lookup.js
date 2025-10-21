@@ -18,7 +18,7 @@ async function ensureChampionIndex() {
     const names = [];
     if (m) {
       for (const a of m) {
-        const slug = a.match(/href="\\/champions\\/([^"]+)"/)[1];
+        const slug = a.match(/href="\/champions\\/([^"]+)"/)[1];
         names.push(decodeURIComponent(slug).replace(/-/g,' ').replace(/\\b(\\w)/g,c=>c.toUpperCase()));
       }
     }
